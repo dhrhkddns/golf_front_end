@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fullscreen Video Background</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    #fullscreen-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    #fullscreen-bg video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-aspect-ratio: 16/9) {
+    #fullscreen-bg video {
+        width: 100vw;
+        height: 56.25vw; /* 16/9 * 100vw */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+    }
+
+    @media (min-aspect-ratio: 16/9) {
+        #fullscreen-bg video {
+            width: 177.78vh; /* 9/16 * 100vh */
+            height: 100vh;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+</style>
+</head>
+<body>
+    <div id="fullscreen-bg">
+        <video autoplay muted loop>
+            <source src="HOLE_IN_ONE_3D_ELASTIC.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>
